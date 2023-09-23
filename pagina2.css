@@ -1,0 +1,23 @@
+form{
+    width: 700;
+    height: 610;
+    margin: auto;
+    padding: 10px;
+    border-radius: 10;
+    background-color: rgb(246, 152, 29);
+}
+
+label{
+    
+    font-style: inherit;
+    size: 15px;
+    color: rgb(11, 10, 10);
+}
+
+input,textarea,select{
+    border: solid 2px #483c2a;
+    padding: 6px;
+}
+body{
+    background-color: #483c2a;
+}

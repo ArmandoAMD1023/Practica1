@@ -1,0 +1,69 @@
+<!DOCTYPE html> 
+<html>
+    <head> <title>Actividad 8</title>
+      <link rel="stylesheet" href="./pagina2.css">
+    
+    </head>
+    <body>
+        <form>
+       <h3 align="center">-Datos Personales-</h3>
+           <div align="center">
+            </div>
+            <div align="center">
+            <p>
+            <label>Primer Nombre:</label></p>
+            <input type="text" id="CNombre" value="Ingresa Dato">
+            <p>
+            <label>Apellidos:</label></p>
+            <input type="text" id="CApellido" value="Ingresa Dato">
+            </div>
+            <div align="center">
+               <p>
+
+                
+            <label>Email:</label></p>
+            <input type="text" id="CEmail" value="Ingresa Correo"></br>
+            <input type="button" id="BEnviar" value="Enviar" style="margin: 0em;">
+            <input type="button" id="BEnviar" value="Mostrar" style="margin: 0em;">
+           
+            <p>
+        </div>
+
+        </form>       
+        
+        <?php
+        $servername = "arma"; // El servidor de la base de datos (puede variar)
+        $username = "Arma"; // El nombre de usuario de la base de datos
+        $password = "Arma123*"; // La contraseña del usuario
+        $database = "practica"; // El nombre de la base de datos
+        
+        $conn = new mysqli($servername, $username, $password, $database);
+
+            // Verificar la conexión
+            if ($conn->connect_error) {
+                die("Conexión a la base de datos fallida: " . $conn->connect_error);
+            }
+
+            // Recibir datos del formulario
+            $primerNombre = $_POST["primerNomb"];
+            $apellidos = $_POST["apellidos"];
+            $email = $_POST["corrreo"];
+
+            // Insertar datos en la base de datos
+            $sql = "INSERT INTO tabla_datos (primer_nombre, apellidos, email) VALUES ('$primerNombre', '$apellidos', '$email')";
+
+            if ($conn->query($sql) === TRUE) {
+                echo "Datos insertados correctamente";
+            } else {
+                echo "Error al insertar datos: " . $conn->error;
+            }
+
+            // Cerrar la conexión
+            $conn->close();
+            ?>
+    </body>
+  
+    
+
+
+</html>
